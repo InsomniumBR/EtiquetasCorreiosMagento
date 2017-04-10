@@ -7,6 +7,11 @@ class FabioSantos_EtiquetaEndereco_EtiquetaController extends Mage_Adminhtml_Con
 		$this->renderLayout();
     }
 
+	protected function _isAllowed()
+	{
+		return Mage::getSingleton('admin/session')->isAllowed('sales/etiquetaendereco');
+	}
+
 	public function massPrintEtiquetaAction()
 	{
 		$data = $this->getRequest()->getParams();
